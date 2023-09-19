@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Please review the book</h1>
+    <h2>{{ book.title }}</h2>
+    <p>Author: {{ book.author }}</p>
+    <p>Publisher: {{ book.publisher }}</p>
+
+    <p>Use the form below to review the book.</p>
+    <form method="post">
+        {# Rating #}
+        {# Content #}
+        <p><input type="submit" value="Review"></p>
+        {% csrf_token %}
+    </form>
+{% endblock %}

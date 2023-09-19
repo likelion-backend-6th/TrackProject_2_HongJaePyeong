@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>내 대출 목록</h2>
+    <ul>
+        {% for rental in rentals %}
+            <li>
+                <a href="{% url 'book_detail' rental.book.id %}">{{ rental.book.title }}</a> -
+                대출일: {{ rental.rental_date }}
+                {% if rental.return_date %}
+                    / 반납일: {{ rental.return_date }}
+                {% else %}
+                    대출중
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

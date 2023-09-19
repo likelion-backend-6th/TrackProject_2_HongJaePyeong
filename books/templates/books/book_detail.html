@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ book.title }}</h2>
+    <p>Author: {{ book.author }}</p>
+    <p>Publisher: {{ book.publisher }}</p>
+    <p>{{ book.summary }}</p>
+
+    {% if book.stock > 0 %}
+        <a href="{% url 'rent_book' book.id %}" class="btn btn-primary">Rent</a>
+    {% else %}
+        <span>No stock</span>
+    {% endif %}
+
+    {# Review List #}
+
+{% endblock %}
